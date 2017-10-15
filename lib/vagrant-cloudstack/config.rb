@@ -258,6 +258,8 @@ module VagrantPlugins
       # @return [Boolean]
       attr_accessor :expunge_on_destroy
 
+      attr_accessor :size
+
       def initialize(domain_specific = false)
         # Initialize groups in bulk, re-use these groups to set defaults in bulk
         INSTANCE_VAR_DEFAULT_NIL.each do |instance_variable|
@@ -385,6 +387,9 @@ module VagrantPlugins
 
         # expunge on destroy is nil by default
         @expunge_on_destroy     = false if @expunge_on_destroy == UNSET_VALUE
+
+        # size is nil by default
+        @size = nil if @size == UNSET_VALUE
 
         # Compile our domain specific configurations only within
         # NON-DOMAIN-SPECIFIC configurations.
