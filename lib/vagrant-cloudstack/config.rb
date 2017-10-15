@@ -252,6 +252,8 @@ module VagrantPlugins
       # @return [Boolean]
       attr_accessor :expunge_on_destroy
 
+      attr_accessor :size
+
       def initialize(domain_specific=false)
         @host                      = UNSET_VALUE
         @name                      = UNSET_VALUE
@@ -506,6 +508,9 @@ module VagrantPlugins
 
         # expunge on destroy is nil by default
         @expunge_on_destroy     = false if @expunge_on_destroy == UNSET_VALUE
+
+        # size is nil by default
+        @size = nil if @size == UNSET_VALUE
 
         # Compile our domain specific configurations only within
         # NON-DOMAIN-SPECIFIC configurations.
